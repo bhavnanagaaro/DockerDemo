@@ -3,10 +3,11 @@ name: Spring Boot CI/CD with MySQL and Redis
 on:
   push:
     branches:
-      - main
+      - master  # Change to 'master'
   pull_request:
     branches:
-      - main
+      - master  # Change to 'master'
+  workflow_dispatch:  # Enable manual trigger
 
 jobs:
   build:
