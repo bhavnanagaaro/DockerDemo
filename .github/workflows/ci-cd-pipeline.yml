@@ -15,7 +15,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: DockerDemo/DockerDemo
+        working-directory: DockerDemo
 
     services:
       mysql:
