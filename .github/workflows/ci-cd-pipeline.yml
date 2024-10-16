@@ -63,6 +63,7 @@ jobs:
       # Build the Spring Boot application
       - name: Build with Maven
         run: mvn clean package -DskipTests
+        working-directory: DockerDemo
 
       # Build Docker images
       - name: Build Docker images
