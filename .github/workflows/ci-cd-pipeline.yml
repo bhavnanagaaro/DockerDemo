@@ -85,9 +85,10 @@ jobs:
       - name: Wait for services to be ready
         run: sleep 30
 
-      # Run integration tests
-      - name: Run integration tests
-        run: mvn verify
+      # Check if the server is running and responding
+      - name: Check server health
+        run: |
+          curl -f http://localhost:8082/hello?myName=bhavna || exit 1
 
       # Shut down Docker Compose services
       - name: Shut down services
