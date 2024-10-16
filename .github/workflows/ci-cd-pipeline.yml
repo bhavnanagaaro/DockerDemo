@@ -13,6 +13,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: DockerDemo/DockerDemo
+
     services:
       mysql:
         image: mysql:8.0
@@ -65,12 +69,12 @@ jobs:
       # Build the Spring Boot application
       - name: Build with Maven
         run: mvn clean package -DskipTests
-        working-directory: DockerDemo
+        #working-directory: DockerDemo
 
       # Build Docker images
       - name: Build Docker images
         run: |
-          docker build -t bhavnanagarro/dockerdemo -f DockerDemo/Dockerfile .
+          docker build -t bhavnanagarro/dockerdemo .
 
       # Start MySQL, Redis, and Spring Boot application with Docker Compose
       - name: Start Docker Compose
