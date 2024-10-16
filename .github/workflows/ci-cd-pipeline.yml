@@ -74,11 +74,13 @@ jobs:
 
       # Build Docker images
       - name: Build Docker images
-        run: docker compose build
+        run: |
+          docker build -t bhavnanagarro/dockerdemo .
 
       # Start MySQL, Redis, and Spring Boot application with Docker Compose
       - name: Start Docker Compose
-        run: docker-compose up -d
+        run: |
+          docker-compose up -d
 
       # Wait for MySQL and Redis to be ready
       - name: Wait for services to be ready
