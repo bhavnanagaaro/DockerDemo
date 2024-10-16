@@ -70,7 +70,7 @@ jobs:
       # Build Docker images
       - name: Build Docker images
         run: |
-          docker build -t bhavnanagarro/dockerdemo .
+          docker build -t bhavnanagarro/dockerdemo -f DockerDemo/Dockerfile .
 
       # Start MySQL, Redis, and Spring Boot application with Docker Compose
       - name: Start Docker Compose
