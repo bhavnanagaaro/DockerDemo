@@ -8,7 +8,7 @@ WORKDIR /app
 COPY pom.xml .
 
 # Step 4: Download Maven dependencies without copying the source code (caching optimization)
-#RUN mvn dependency:go-offline -B
+RUN mvn dependency:go-offline -B
 
 # Step 5: Copy the rest of the project files
 COPY src ./src
@@ -28,8 +28,8 @@ WORKDIR /app
 # Step 9: Copy the JAR file from the build stage to the runtime stage
 COPY --from=build /app/target/DockerDemo-0.0.1-SNAPSHOT.jar /app/DockerDemo.jar
 
-# Step 10: Expose the application port (default Spring Boot port is 8080)
-EXPOSE 8082
-
 # Step 11: Command to run the application
 ENTRYPOINT ["java", "-jar", "/app/DockerDemo.jar"]
+
+# Step 10: Expose the application port (default Spring Boot port is 8080)
+EXPOSE 8082

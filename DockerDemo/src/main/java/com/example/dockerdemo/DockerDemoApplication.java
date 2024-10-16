@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,10 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableJpaRepositories(basePackages = "com.example.dockerdemo.repository")
 @EntityScan(basePackages = "com.example.dockerdemo.entity")
 @EnableCaching
+@CrossOrigin
 public class DockerDemoApplication {
 
 	public static void main(String[] args) {
+
+		System.out.println("===========App Start===========");
 		SpringApplication.run(DockerDemoApplication.class, args);
+
 	}
 
 	@GetMapping("/hello")
