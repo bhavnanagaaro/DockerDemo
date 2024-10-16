@@ -85,6 +85,12 @@ jobs:
       - name: Wait for services to be ready
         run: sleep 30
 
+
+      # List all Docker containers
+      - name: List Docker containers
+        run: |
+                 docker ps -a
+
       # Check if the server is running and responding
       - name: Check server health
         run: |
