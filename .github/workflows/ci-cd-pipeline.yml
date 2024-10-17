@@ -41,11 +41,6 @@ jobs:
             ${{ runner.os }}-maven-
 
 
-      - name: Check logs
-        run: |
-          docker logs spring-boot-app-container  
-          
-
       # Start MySQL, Redis, and Spring Boot application with Docker Compose
       - name: Start Docker Compose
         run: |
@@ -53,7 +48,7 @@ jobs:
 
       - name: Check logs
         run: |
-          docker inspect spring-boot-app-container 
+          docker logs spring-boot-app-container 
 
       # Wait for MySQL and Redis to be ready
       - name: Wait for services to be ready
