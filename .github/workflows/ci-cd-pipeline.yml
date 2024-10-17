@@ -40,20 +40,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      # Build the Spring Boot application
-      - name: Build with Maven
-        run: mvn clean package -DskipTests
-        #working-directory: DockerDemo
-
-      # Build Docker images
-      - name: Build Docker images
-        run: |
-          docker build -t bhavnanagarro/dockerdemo .
 
       # Start MySQL, Redis, and Spring Boot application with Docker Compose
       - name: Start Docker Compose
         run: |
-          docker compose up -d
+          docker-compose up -d
 
       # Wait for MySQL and Redis to be ready
       - name: Wait for services to be ready
