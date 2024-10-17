@@ -43,7 +43,8 @@ jobs:
                  docker ps -a
 
       - name: Check Spring Boot logs
-        run: docker-compose -f DockerDemo/docker-compose.yml logs app
+        run: |
+            docker compose -f DockerDemo/docker-compose.yml logs app
 
       # Check if the server is running and responding
       - name: Check server health
