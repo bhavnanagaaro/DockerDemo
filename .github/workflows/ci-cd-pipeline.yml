@@ -36,10 +36,6 @@ jobs:
         run: |
           docker logs spring-boot-app-container 
 
-      # Wait for MySQL and Redis to be ready
-      - name: Wait for services to be ready
-        run: sleep 30
-
 
       # List all Docker containers
       - name: List Docker containers
