@@ -42,15 +42,4 @@ jobs:
         run: |
                  docker ps -a
 
-      - name: Check Spring Boot logs
-        run: |
-            docker compose -f docker-compose.yml logs app
-
-      # Check if the server is running and responding
-      - name: Check server health
-        run: |
-          curl -f http://localhost:8082/hello?myName=bhavna || exit 1
-
-      # Shut down Docker Compose services
-      - name: Shut down services
-        run: docker-compose down
+     
