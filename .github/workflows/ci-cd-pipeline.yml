@@ -41,10 +41,19 @@ jobs:
             ${{ runner.os }}-maven-
 
 
+      - name: Check logs
+        run: |
+          docker inspect spring-boot-app-container  
+          
+
       # Start MySQL, Redis, and Spring Boot application with Docker Compose
       - name: Start Docker Compose
         run: |
           docker compose up -d
+
+      - name: Check logs
+        run: |
+          docker inspect spring-boot-app-container 
 
       # Wait for MySQL and Redis to be ready
       - name: Wait for services to be ready
@@ -59,7 +68,7 @@ jobs:
       # Check if the server is running and responding
       - name: Check server health
         run: |
-          curl -f http://localhost:8080/hello?myName=bhavna || exit 1
+          curl -f http://localhost:8082/hello?myName=bhavna || exit 1
 
       # Shut down Docker Compose services
       - name: Shut down services
