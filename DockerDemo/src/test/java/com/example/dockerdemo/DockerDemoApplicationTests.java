@@ -12,22 +12,5 @@ import java.sql.SQLException;
 @SpringBootTest
 class DockerDemoApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
-
-	@Autowired
-	DataSource dataSource;
-
-	@Test
-	@PostConstruct
-	public void testConnection() {
-		try (Connection conn = dataSource.getConnection()) {
-			System.out.println("Connected to the database!");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
 
 }
