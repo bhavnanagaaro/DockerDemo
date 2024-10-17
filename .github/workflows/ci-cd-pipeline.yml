@@ -22,29 +22,15 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v2
 
-      # Set up JDK
-      - name: Set up JDK
-        uses: actions/setup-java@v2
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-
-
-          
-      # Cache Maven dependencies
-      - name: Cache Maven dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
-
-
       # Start MySQL, Redis, and Spring Boot application with Docker Compose
       - name: Start Docker Compose
         run: |
           docker compose up -d
+
+      # List all Docker containers
+      - name: List Docker containers
+        run: |
+          docker ps -a
 
       - name: Check logs
         run: |
